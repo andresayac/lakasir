@@ -27,7 +27,7 @@ class ListProducts extends ListRecords
                     FileUpload::make('attachment')
                         ->acceptedFileTypes(['application/vnd.ms-excel', 'text/csv']),
                 ])->action(function (array $data) {
-                    $file = public_path('storage/'.$data['attachment']);
+                    $file = public_path('storage/app/public/'.$data['attachment']);
 
                     Excel::import(new ImportsProductImport, $file);
                 }),
